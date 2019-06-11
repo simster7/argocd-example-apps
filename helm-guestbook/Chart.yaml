@@ -3,3 +3,13 @@ appVersion: "1.0"
 description: A Helm chart for Kubernetes
 name: helm-guestbook
 version: 0.1.0
+key1: a b c/,cba
+key2:
+    - subkey: val1
+    - subkey: val2
+key3: {subkey: val1, subkey2: val2}
+key4: {subkey, subkey2}
+key5:
+   - a
+   - b
+key6: [val1, val2]
