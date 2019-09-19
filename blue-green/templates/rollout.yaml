@@ -1,9 +1,9 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: {{ template "helm-guestbook.fullname" . }}
+  name: qbo-app-ui
   labels:
-    app: {{ template "helm-guestbook.name" . }}
+    app: qbo-app-ui
     chart: {{ template "helm-guestbook.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -12,17 +12,17 @@ spec:
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: {{ template "helm-guestbook.name" . }}
+      app: qbo-app-ui
       release: {{ .Release.Name }}
   strategy:
     blueGreen:
-      activeService: {{ template "helm-guestbook.fullname" . }}
-      previewService: {{ template "helm-guestbook.fullname" . }}-preview
+      activeService: qbo-app-ui
+      previewService: qbo-app-ui-preview
       autoPromotionEnabled: false
   template:
     metadata:
       labels:
-        app: {{ template "helm-guestbook.name" . }}
+        app: qbo-app-ui
         release: {{ .Release.Name }}
     spec:
       containers:
